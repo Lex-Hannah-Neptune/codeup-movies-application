@@ -6,15 +6,17 @@ let getOptions = {
         'Content-Type': 'application/json',
     }
 };
-const getBooks = () => {
-    fetch("https://pointed-ripple-stork.glitch.me/books", getOptions)
+const getMovies = () => {
+    fetch("https://pointed-ripple-stork.glitch.me/movies", getOptions)
         .then(resp => resp.json())
-        .then(books => {
-            console.log(books);
-            let htmlStr = "";
-            for (let book of books) {
-                htmlStr += `<h2>${book.title}</h2><p>by: ${book.author.firstName} ${book.author.lastName}</p>`;
-            }
-            $('#container').html(htmlStr);
+        .then(movies => {
+            console.log(movies);
+            // let htmlStr = "";
+            // for (let movie of movies) {
+            //     htmlStr += `<h2>${movie.title}</h2><p>by: ${movie.author.firstName} ${movie.author.lastName}</p>`;
+            // }
+            // $('#container').html(htmlStr);
         });
 }
+
+getMovies();
