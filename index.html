@@ -6,11 +6,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="container-fluid">
 <h1 class="text-center">Movie Project</h1>
+
+<form>
+<!--    <h4>Add your own movie!</h4>-->
+    <label class="font-weight-bold" for="title">Title</label>
+    <br>
+    <input id='title' type="text">
+    <br>
+    <br>
+    <label class="font-weight-bold" for="rating">Rating</label>
+    <br>
+    <input type="text" id="rating" onkeyup="myFunction()">
+    <br>
+    <br>
+    <button id="button" type="button">Submit</button>
+</form>
+
 <div class="d-flex row justify-content-around" id="container"></div>
-
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="js/script.js"></script>
