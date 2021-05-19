@@ -41,25 +41,41 @@ const getMovies = () => {
     });
 }
 getMovies();
+//
+// var newTitle = $('#title').val();
+// var newRating = $('#rating').val();
+//
+// let newMovie = {
+//     "title": `${newTitle}`,
+//     "rating": `${newRating}`,
+// };
+//
+// let postOptions = {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(newMovie),
+// }
 
-var newTitle = $('#title').value();
-console.log(newTitle);
-var newRating = $('#rating').value();
 
-let newBook = {
-    "title": `${newTitle}`,
-    "rating": `${newRating}`,
-};
-
-let postOptions = {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(newBook),
-}
 
 $('#button').click(() => {
+    var newTitle = $('#title').val();
+    var newRating = $('#rating').val();
+    let newMovie = {
+        "title": `${newTitle}`,
+        "rating": `${newRating}`,
+    };
+    let postOptions = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newMovie),
+    }
+    console.log(newTitle);
+    console.log(newMovie.title);
     fetch("https://pointed-ripple-stork.glitch.me/movies", postOptions)
         .then(getMovies);
 
