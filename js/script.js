@@ -1,10 +1,7 @@
 "use strict"
 
-<<<<<<< HEAD
     $('#container').html("Loading...");
 
-
-=======
 let getOptions = {
     method: 'GET',
     headers: {
@@ -13,7 +10,6 @@ let getOptions = {
 };
 
 $('#container').html("Loading...");
->>>>>>> f9665d53c97b20af906531c28414f8665a16a5bc
 
 const getMovies = () => {
     $.ajax('https://pointed-ripple-stork.glitch.me/movies').done((movies) => {
@@ -80,9 +76,6 @@ $('#button').click(() => {
 
 });
 
-<<<<<<< HEAD
-// DELETE
-=======
 // DELETE MOVIES FUNCTION
 // $('.button').click(() => {
 //     var getParent = $(this).parent().parent();
@@ -90,21 +83,21 @@ $('#button').click(() => {
 //     console.log(getParent);
 //     console.log(test);
 // }) ;
->>>>>>> f9665d53c97b20af906531c28414f8665a16a5bc
 
-// let deleteOptions = {
-//     method: 'DELETE',
-//     headers: {
-//         'Content-Type': 'application/json',
-//     }
-// };
-<<<<<<< HEAD
-// $('.delete').click(() => {
-//     let inputVal = $('#id-to-delete').val();
-//     console.log(inputVal);
-//     fetch(`https://pointed-ripple-stork.glitch.me/movies/14`, deleteOptions)
-//         .then(getMovies);
-=======
+let deleteOptions = {
+    method: 'DELETE',
+    headers: {
+        'Content-Type': 'application/json',
+    }
+};
+
+$('.delete').click(() => {
+    let inputVal = $('#id-to-delete').val();
+    console.log(inputVal);
+    fetch(`https://pointed-ripple-stork.glitch.me/movies/14`, deleteOptions)
+        .then(getMovies);
+});
+
 // $('#uniqueBooks').click(() => {
 //     let inputVal = $('#id-to-delete').val();
 //     console.log(inputVal);
@@ -112,27 +105,3 @@ $('#button').click(() => {
 //         .then(getBooks);
 // })
 
-
-// $('#button').click( function() {
-//     let htmlStr = ''
-//         `
-//                     <div class="card m-1" style="width: 18rem;">
-//                       <img src=${movie.poster} class="card-img-top" alt="...">
-//                       <div class="card-body">
-//                         <h5 class="card-title">${movie.title.toUpperCase()}</h5>
-//                         <p class="card-text">${movie.plot}.</p>
-//                       </div>
-//                       <ul class="list-group list-group-flush">
-//                         <li class="list-group-item">Directed by: ${movie.director}</li>
-//                         <li class="list-group-item">${movie.genre}</li>
-//                         <li class="list-group-item">${movie.rating}</li>
-//                       </ul>
-//                       <div class="card-body">
-//                         <a href="#" class="card-link">link</a>
-//                         <a href="#" class="card-link">link</a>
-//                       </div>
-//                     </div>`
-//
-//     $('#container').html(htmlStr)
->>>>>>> f9665d53c97b20af906531c28414f8665a16a5bc
-// })
