@@ -7,10 +7,7 @@ let getOptions = {
     }
 };
 
-
-    $('#container').html("Loading...");
-
-
+$('#container').html("Loading...");
 
 const getMovies = () => {
     $.ajax('https://pointed-ripple-stork.glitch.me/movies').done((movies) => {
