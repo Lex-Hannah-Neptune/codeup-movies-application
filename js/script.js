@@ -56,9 +56,15 @@ const getMovies = () => {
                           </div>
 <!--                    </div>-->`;
                 // $('#patch').html(htmlPatch);
+                console.log(htmlPatch);
             }
 
-            // $("#editButton-+${movie.id}+").click(function (){
+            // $(document).on(“click”, “.editButton”, function (e) {
+            //     let editID = $(this).data(“id”);
+            // }
+            let movieID = movie.id
+            $("i.editButton").click(function (){
+                let editID = $(this).attr("id")
             // //
             //     let parentID =  $(this).parent().parent().attr('id');
             //     let turnForm = $(this).parent().parent();
@@ -69,7 +75,9 @@ const getMovies = () => {
             // //
             // //     //// fetch("https://pointed-ripple-stork.glitch.me/books/7", patchOptions)
             // //     //             //     .then(getMovies);
-            // });
+            //     patching()
+                console.log(editID);
+            })
 
             }
             $('#container').html(htmlStr);
