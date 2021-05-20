@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 .editButton {
     cursor: pointer;
@@ -13,9 +14,48 @@
 }
 
 body {
-    background: black;
+    background: linear-gradient(-45deg, #000000, rgba(255, 126, 0, 0.71));
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    font-family: 'Open Sans', sans-serif;}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 h1 {
-    color: whitesmoke;
+    color: white;
+}
+
+button.delete, button.saveChange {
+    height: 40px;
+    width: 70px;
+}
+
+i {
+    height: 40px !important;
+    width: 70px !important;
+}
+
+#form {
+    display: none;
+}
+
+h1 {
+    font-size: 100px;
+}
+
+button {
+    border-radius: 5px;
+    border: none;
+    height: 40px;
+    width: 100px;
 }
