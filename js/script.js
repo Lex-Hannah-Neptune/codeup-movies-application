@@ -1,7 +1,5 @@
 "use strict"
 
-    $('#container').html("Loading...");
-
 let getOptions = {
     method: 'GET',
     headers: {
@@ -9,8 +7,10 @@ let getOptions = {
     }
 };
 
+// LOADING MESSAGE
 $('#container').html("Loading...");
 
+// POPULATES MOVIE CARDS
 const getMovies = () => {
     $.ajax('https://pointed-ripple-stork.glitch.me/movies').done((movies) => {
         console.log(movies);
@@ -38,12 +38,9 @@ const getMovies = () => {
             }
             $('#container').html(htmlStr);
 
-
-            // DELETE
+            // DELETE FUNCTION
             $('button.delete').click(function() {
                 let parentID =  $(this).parent().parent().attr('id');
-
-
                 let deleteOptions = {
                     method: 'DELETE',
                     headers: {
@@ -53,8 +50,8 @@ const getMovies = () => {
                 fetch(`https://pointed-ripple-stork.glitch.me/movies/${parentID}`, deleteOptions)
                     .then(getMovies);
             });
-            // PATCH
 
+            // PATCH FUNCTION
             $('i.editButton').click(function (){
                 let parentID =  $(this).parent().parent().attr('id');
                 let parent = $(this).parent().parent();
@@ -70,37 +67,34 @@ const getMovies = () => {
                 console.log(genre);
                 console.log(rating);
                 console.log(parentID)
+
+                // EDIT FUNCTION
+                $('button.saveChanges').click(function (){
+                    console.log($(this).text());
+
+                    let editThis = {
+                        "poster": $(this).parent().parent().children().next().children('.card-title').text(),
+                        "title": "",
+                        "plot": "",
+                        "director": "",
+                        "genre": "",
+                        "rating": "",
+                    };
+                    let patchOptions = {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(editThis),
+                    }
+                    fetch("https://pointed-ripple-stork.glitch.me/books/7", patchOptions)
+                        .then(getMovies);
+                });
             });
-
-            $('button.saveChanges').click(function (){
-                console.log($(this).text());
-            });
-
-
-
-
-
-
-
-        let editThis = {
-                "title": "Percy Jackson & The Titan's Curse",
-            };
-
-            let patchOptions = {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(editThis),
-            }
-
-
-
     }, 1000);
     });
 }
 getMovies();
-
 
 // FORM TO ADD NEW ITEMS
 $('#button').click(() => {
@@ -127,8 +121,10 @@ $('#button').click(() => {
         .then(getMovies);
 });
 
+// TOGGLES VIEW OF ADD MOVIES
 function myFunction() {
-    var x = document.getElementById("container");
+    console.log('TEST')
+    var x = document.getElementById("form");
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
