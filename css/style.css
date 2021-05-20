@@ -2,3 +2,20 @@
 .editButton {
     cursor: pointer;
 }
+
+.card {
+    border-radius: 10px;
+    border: black;
+}
+
+.card-img-top {
+    border-radius: 10px 10px 0 0;
+}
+
+body {
+    background: black;
+}
+
+h1 {
+    color: whitesmoke;
+}
