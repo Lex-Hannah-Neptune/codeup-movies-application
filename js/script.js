@@ -38,11 +38,11 @@ const getMovies = () => {
                 }
                 $('#container').html(htmlStr);
 
-                $('.delete').click(() => {
+                $('button.delete').click(function()  {
                     // TESTING - THIS WORKS
-                    // $('.delete').css('background-color', 'blue');
+                    // $('.delete').parent().parent().css('background-color', 'blue');
                     // THIS DOES NOT WORK... WHY?
-                    // $(this).css('background-color', 'blue');
+                    $(this).css('background-color', 'blue');
 
                     let deleteOptions = {
                         method: 'DELETE',
@@ -50,10 +50,8 @@ const getMovies = () => {
                             'Content-Type': 'application/json',
                         }
                     };
-                    var getParent = $(this).html;
-                    var test = 'test'
-                    console.log(getParent);
-                    console.log(test);
+                    // var getParent = $(this).html;
+                    // console.log(getParent);
                     // fetch(`https://pointed-ripple-stork.glitch.me/movies/10`, deleteOptions)
                     //     .then(getMovies);
                 });
@@ -83,11 +81,8 @@ $('#button').click(() => {
         },
         body: JSON.stringify(newMovie),
     }
-    console.log(newTitle);
-    console.log(newMovie.title);
     fetch("https://pointed-ripple-stork.glitch.me/movies", postOptions)
         .then(getMovies);
-
 });
 
 //
