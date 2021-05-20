@@ -30,23 +30,47 @@ const getMovies = () => {
                         <li class="list-group-item">${movie.rating}</li>
                       </ul>
                       <div class="card-body d-flex">
-                        <a href="#" class="card-link">link</a>
-                        <i class="fas fa-edit" id="editButton-${movie.id}"></i>
+                        <i class="fas fa-edit editButton" id="editButton-${movie.id}"></i>
                         <button type="button" class="ml-auto delete">Delete</button>
                       </div>
                 </div>`;
-            // $('#editButton-${movie.id}').click(function (){
-            //
+
+            function patching () {
+                let htmlPatch = ''
+                htmlPatch += `
+<!--                     <div id=${movie.id.toString()}  class="card m-1" style="width: 18rem;">-->
+                          <img src=${movie.poster} class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <input class="card-title" value="${movie.title.toUpperCase()}">
+                            <input class="card-text" value="${movie.plot}.">
+                          </div>
+                          <ul class="list-group list-group-flush">
+                            <input class="list-group-item" value="Directed by: ${movie.director}">
+                            <input class="list-group-item" value="${movie.genre}">
+                            <input class="list-group-item" value="${movie.rating}">
+                          </ul>
+                          <div class="card-body d-flex">
+<!--                            <a href="#" class="card-link">link</a>-->
+                            <i class="fas fa-edit" id="editButton-${movie.id}"></i>
+                            <button type="button" class="ml-auto delete">Delete</button>
+                          </div>
+<!--                    </div>-->`;
+                // $('#patch').html(htmlPatch);
+            }
+
+            // $("#editButton-+${movie.id}+").click(function (){
+            // //
             //     let parentID =  $(this).parent().parent().attr('id');
             //     let turnForm = $(this).parent().parent();
-            //     // turnForm.html()
-            // console.log(parentID);
-            //
-            //     // emptyThis.empty();
-            //
-            //     //// fetch("https://pointed-ripple-stork.glitch.me/books/7", patchOptions)
-            //     //             //     .then(getMovies);
+            //     turnForm.html(patching)
+            // // console.log(parentID);
+            // //
+            // //     // emptyThis.empty();
+            // //
+            // //     //// fetch("https://pointed-ripple-stork.glitch.me/books/7", patchOptions)
+            // //     //             //     .then(getMovies);
             // });
+
             }
             $('#container').html(htmlStr);
 
@@ -78,7 +102,16 @@ const getMovies = () => {
         // //             //     .then(getMovies);
         //     });
 
-            let editThis = {
+        // FORM TO PATCH 2.0
+
+
+        // $('i.editButton').click(function () {
+
+        // });
+
+
+
+        let editThis = {
                 "title": "Percy Jackson & The Titan's Curse",
             };
 
@@ -96,6 +129,7 @@ const getMovies = () => {
     });
 }
 getMovies();
+
 
 // FORM TO ADD NEW ITEMS
 $('#button').click(() => {
@@ -121,7 +155,3 @@ $('#button').click(() => {
     fetch("https://pointed-ripple-stork.glitch.me/movies", postOptions)
         .then(getMovies);
 });
-
-
-
-
