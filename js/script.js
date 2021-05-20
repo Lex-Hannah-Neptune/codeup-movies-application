@@ -39,13 +39,17 @@ const getMovies = () => {
                 $('#container').html(htmlStr);
 
                 $('.delete').click(() => {
+                    // TESTING - THIS WORKS
+                    // $('.delete').css('background-color', 'blue');
+                    // THIS DOES NOT WORK... WHY?
+                    // $(this).css('background-color', 'blue');
+
                     let deleteOptions = {
                         method: 'DELETE',
                         headers: {
                             'Content-Type': 'application/json',
                         }
                     };
-
                     var getParent = $(this).html;
                     var test = 'test'
                     console.log(getParent);
