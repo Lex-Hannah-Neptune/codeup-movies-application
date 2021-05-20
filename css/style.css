@@ -2,6 +2,11 @@
 
 .editButton {
     cursor: pointer;
+    font-size: 20px;
+}
+
+#addMovie {
+    width: 8em;
 }
 
 .card {
