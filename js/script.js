@@ -65,26 +65,20 @@ const getMovies = () => {
                 let genre = $(this).parent().parent().children().next().next().children('.genre').attr('contenteditable', 'true');
                 let rating = $(this).parent().parent().children().next().next().children('.rating').attr('contenteditable', 'true');
                 $(this).next().attr('class', 'ml-auto saveChanges');
-                $(this).next().html('Save Changes');
+                $(this).next().html('Save');
 
                 console.log(genre);
                 console.log(rating);
-
-
-
                 console.log(parentID)
-
-
-            //// fetch("https://pointed-ripple-stork.glitch.me/books/7", patchOptions)
-        //             //     .then(getMovies);
             });
 
-        // FORM TO PATCH 2.0
+            $('button.saveChanges').click(function (){
+                console.log($(this).text());
+            });
 
 
-        // $('i.editButton').click(function () {
 
-        // });
+
 
 
 
