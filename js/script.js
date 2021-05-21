@@ -66,7 +66,7 @@ const getMovies = () => {
 
                 let title = $(this).parent().parent().children().next().children('.card-title').attr('contenteditable', 'true');
                 let plot = $(this).parent().parent().children().next().children().next('.plot').attr('contenteditable', 'true');
-                let director = "Directed by: " + $(this).parent().parent().children().next().next().children('.director').attr('contenteditable', 'true');
+                let director = $(this).parent().parent().children().next().next().children('.director').attr('contenteditable', 'true');
                 let genre = $(this).parent().parent().children().next().next().children('.genre').attr('contenteditable', 'true');
                 var rating = $(this).parent().parent().children().next().next().children('.rating').attr('contenteditable', 'true');
                 // $(this).next().attr('class', 'ml-auto saveChanges');
