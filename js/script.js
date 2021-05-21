@@ -18,7 +18,7 @@ const getMovies = () => {
        let htmlStr = "";
         for (let movie of movies) {
             htmlStr += `
-                 <div id=${movie.id.toString()} class="card m-1" style="width: 18rem;">
+                 <div id=${movie.id.toString()} class="card m-1 mb-5" style="width: 18rem;">
                       <img src=${movie.poster} class="card-img-top" alt="...">
                       <div class="card-body">
                         <h5 contenteditable="false" id="title-${movie.id}" class="card-title">${movie.title.toUpperCase()}</h5>
@@ -88,7 +88,7 @@ const getMovies = () => {
                     console.log($(this).text());
                     let parentID =  $(this).parent().parent().attr('id');
                     let editThis = {
-                        "poster": $(this).parent().parent().children().next().children('.card-title').text(),
+                        "poster": $(this).parent().parent().children('img').text(),
                         "title": $(this).parent().parent().children().next().children('.card-title').text(),
                         "plot": $(this).parent().parent().children().next().children().next('.plot').text(),
                         "director":"Directed by: " + $(this).parent().parent().children().next().next().children('.director').text(),
