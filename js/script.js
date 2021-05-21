@@ -37,6 +37,7 @@ const getMovies = () => {
                       </div>
                 </div>`;
             }
+
             $('#container').html(htmlStr);
 
             // DELETE FUNCTION
@@ -72,6 +73,9 @@ const getMovies = () => {
                 $(this).next().toggleClass('hide')
                 $(this).next().next().toggleClass('hide')
                 // $('.delete').toggleClass('hide')
+                $(this).parent().parent().toggleClass('highlight')
+                $(this).parent().prev().children().toggleClass('highlight')
+
 
                 // EDIT FUNCTION
                 $('button.saveChanges').click(function () {

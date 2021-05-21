@@ -45,6 +45,10 @@ textarea {
     border-radius: 10px 10px 0 0;
 }
 
+.highlight {
+    border: solid 2px mediumseagreen;
+}
+
 
 
 @keyframes gradient {
