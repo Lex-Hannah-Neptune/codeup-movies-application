@@ -22,7 +22,7 @@ const getMovies = () => {
                       <img src=${movie.poster} class="card-img-top" alt="...">
                       <div class="card-body">
                         <h5 contenteditable="false" id="title-${movie.id}" class="card-title">${movie.title.toUpperCase()}</h5>
-                        <p contenteditable="false" id="plot-${movie.id}" class="card-text plot">${movie.plot}.</p>
+                        <p contenteditable="false" id="plot-${movie.id}" class="card-text plot">${movie.plot}</p>
                       </div>
                       <ul class="list-group list-group-flush">
                         <li contenteditable="false" id="director-${movie.id}" class="list-group-item director">${movie.director}</li>
@@ -88,7 +88,7 @@ const getMovies = () => {
                     console.log($(this).text());
                     let parentID =  $(this).parent().parent().attr('id');
                     let editThis = {
-                        "poster": $(this).parent().parent().children('img').text(),
+                        "poster": $(this).parent().parent().children('img').attr('src'),
                         "title": $(this).parent().parent().children().next().children('.card-title').text(),
                         "plot": $(this).parent().parent().children().next().children().next('.plot').text(),
                         "director":"Directed by: " + $(this).parent().parent().children().next().next().children('.director').text(),
