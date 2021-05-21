@@ -27,8 +27,15 @@ const getMovies = () => {
                       <ul class="list-group list-group-flush">
                         <li contenteditable="false" id="director-${movie.id}" class="list-group-item director">${movie.director}</li>
                         <li contenteditable="false" id="genre-${movie.id}" class="list-group-item genre">${movie.genre}</li>
-                        <li contenteditable="false" id="rating-${movie.id}" class="list-group-item rating">${movie.rating}</li>
+<!--                        <li contenteditable="false" id="rating-${movie.id}" class="list-group-item rating">${movie.rating}</li>-->
                       </ul>
+                      <div contenteditable="false" id="rating-${movie.id} class="rating">
+                            <i class="fas fa-star ml-3"></i>                           
+                            <i class="fas fa-star"></i>                           
+                            <i class="fas fa-star"></i>                         
+                            <i class="fas fa-star"></i>                           
+                            <i class="fas fa-star"></i>                           
+                      </div>
                       <div class="card-body d-flex">
                         <i class="fas fa-edit editButton" id="editButton-${movie.id}"></i>
                         <button type="button" class="ml-auto delete">Delete</button>
@@ -127,12 +134,11 @@ $('#button').click(() => {
 });
 
 // TOGGLES VIEW OF ADD MOVIES
-function myFunction() {
-    console.log('TEST')
-    var x = document.getElementById("form");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+$("#addMovie").click(() => {
+    $('#form').toggleClass('hide')
+    $('#addMovie').toggleClass('hide')
+});
+
+$("#button").click(() => {
+    $('#form').toggleClass('hide')
+});

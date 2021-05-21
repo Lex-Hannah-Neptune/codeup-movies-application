@@ -91,3 +91,13 @@ button {
 .hide {
     display: none;
 }
+
+img {
+    width: 290px;
+    height: 430px;
+}
+
+.fas {
+    display: inline;
+}
+
