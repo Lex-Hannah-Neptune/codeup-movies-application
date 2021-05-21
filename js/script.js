@@ -39,7 +39,7 @@ const getMovies = () => {
                       <div class="card-body d-flex">
                         <i class="fas fa-edit editButton" id="editButton-${movie.id}"></i>
                         <button type="button" class="ml-auto delete">Delete</button>
-                        <button type="button" class="ml-auto patch hide saveChanges">Submit</button>
+                        <button type="button" class="ml-auto patch hide saveChanges">Save</button>
                       </div>
                 </div>`;
             }
