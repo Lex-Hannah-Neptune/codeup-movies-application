@@ -27,9 +27,15 @@ const getMovies = () => {
                       <ul class="list-group list-group-flush">
                         <li contenteditable="false" id="director-${movie.id}" class="list-group-item director">${movie.director}</li>
                         <li contenteditable="false" id="genre-${movie.id}" class="list-group-item genre">${movie.genre}</li>
-                        <li contenteditable="false" id="rating-${movie.id}" class="list-group-item rating">${movie.rating}</li>
+<!--                        <li contenteditable="false" id="rating-${movie.id}" class="list-group-item rating">${movie.rating}</li>-->
                       </ul>
-                    
+                      <div contenteditable="false" id="rating-${movie.id} class="rating">
+                            <i class="fas fa-star ml-3"></i>                           
+                            <i class="fas fa-star"></i>                           
+                            <i class="fas fa-star"></i>                         
+                            <i class="fas fa-star"></i>                           
+                            <i class="fas fa-star"></i>                           
+                      </div>
                       <div class="card-body d-flex">
                         <i class="fas fa-edit editButton" id="editButton-${movie.id}"></i>
                         <button type="button" class="ml-auto delete">Delete</button>
@@ -139,4 +145,9 @@ $("#addMovie").click(() => {
 $("#button").click(() => {
     $('#form').toggleClass('hide')
     $('#addMovie').toggleClass('visibility', 'hidden' )
+});
+
+$(".fa-star").click(() => {
+    $('.fa-star').toggleClass('yellow')
+    // $('#addMovie').toggleClass('visibility', 'hidden' )
 });

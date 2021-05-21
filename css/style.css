@@ -124,3 +124,12 @@ img {
     display: inline;
 }
 
+
+
+.fa-star {
+    cursor: pointer;
+}
+
+.yellow {
+    color: yellow;
+}
