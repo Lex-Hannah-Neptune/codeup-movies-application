@@ -27,22 +27,15 @@ const getMovies = () => {
                       <ul class="list-group list-group-flush">
                         <li contenteditable="false" id="director-${movie.id}" class="list-group-item director">${movie.director}</li>
                         <li contenteditable="false" id="genre-${movie.id}" class="list-group-item genre">${movie.genre}</li>
-<!--                        <li contenteditable="false" id="rating-${movie.id}" class="list-group-item rating">${movie.rating}</li>-->
+                        <li contenteditable="false" id="rating-${movie.id}" class="list-group-item rating">${movie.rating}</li>
                       </ul>
-                      <div contenteditable="false" id="rating-${movie.id} class="rating">
-                            <i class="fas fa-star ml-3"></i>                           
-                            <i class="fas fa-star"></i>                           
-                            <i class="fas fa-star"></i>                         
-                            <i class="fas fa-star"></i>                           
-                            <i class="fas fa-star"></i>                           
-                      </div>
+                    
                       <div class="card-body d-flex">
                         <i class="fas fa-edit editButton" id="editButton-${movie.id}"></i>
                         <button type="button" class="ml-auto delete">Delete</button>
                         <button type="button" class="ml-auto patch hide saveChanges">Submit</button>
                       </div>
                 </div>`;
-
             }
             $('#container').html(htmlStr);
 
@@ -68,7 +61,7 @@ const getMovies = () => {
                 let plot = $(this).parent().parent().children().next().children().next('.plot').attr('contenteditable', 'true');
                 let director = "Directed by: " + $(this).parent().parent().children().next().next().children('.director').attr('contenteditable', 'true');
                 let genre = $(this).parent().parent().children().next().next().children('.genre').attr('contenteditable', 'true');
-                let rating = $(this).parent().parent().children().next().next().children('.rating').attr('contenteditable', 'true');
+                var rating = $(this).parent().parent().children().next().next().children('.rating').attr('contenteditable', 'true');
                 // $(this).next().attr('class', 'ml-auto saveChanges');
                 // $(this).next().html('Save');
 
@@ -136,9 +129,10 @@ $('#button').click(() => {
 // TOGGLES VIEW OF ADD MOVIES
 $("#addMovie").click(() => {
     $('#form').toggleClass('hide')
-    $('#addMovie').toggleClass('hide')
+    $('#addMovie').toggleClass('visibility', 'hidden' )
 });
 
 $("#button").click(() => {
     $('#form').toggleClass('hide')
+    $('#addMovie').toggleClass('visibility', 'hidden' )
 });
