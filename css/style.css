@@ -11,6 +11,10 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.movie {
+    font-size: .5em;
+}
+
 h5 {
     font-weight: bold;
 }
@@ -84,6 +88,13 @@ textarea {
 
 h1 {
     color: white;
+    font-size: 70px;
+}
+
+.movie {
+    color: whitesmoke;
+    font-size: 40px;
+    margin-top: 1px;
 }
 
 button.delete, button.saveChange {
@@ -96,13 +107,10 @@ i {
     width: 70px !important;
 }
 
-/*#form {*/
-/*    display: none;*/
-/*}*/
 
-h1 {
-    font-size: 100px;
-}
+/*#mainTitle {*/
+/*    font-size: medium;*/
+/*}*/
 
 button {
     border-radius: 5px;
