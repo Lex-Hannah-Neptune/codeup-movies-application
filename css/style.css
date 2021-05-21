@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 
 body {
     background: linear-gradient(45deg, #000000, #000000, #c40000, #d80000);
     background-repeat: inherit;
     background-size: 250% 250%;
     animation: gradient 10s ease-in-out infinite;
-    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Open Sans', sans-serif;*/
+    font-family: 'Poppins', sans-serif;
+}
+
+h5 {
+    font-weight: bold;
 }
 
 .editButton {
@@ -20,6 +27,9 @@ body {
 
 input {
     border-radius: 5px;
+    background-color:  #1B1B1B ;
+    color: whitesmoke;
+    border: none;
 }
 
 textarea {
@@ -27,6 +37,15 @@ textarea {
     height: 10em;
     margin-bottom: 20px;
     border-radius: 7px;
+    background-color:  #1B1B1B ;
+    color: whitesmoke;
+    border: none;
+}
+
+.darkBg {
+    background-color:  #1B1B1B ;
+    color: whitesmoke;
+    border: none;
 }
 
 .card {
