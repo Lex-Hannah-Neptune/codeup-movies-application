@@ -2,37 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies App!</title>
     <script src="https://kit.fontawesome.com/1e8ed50084.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="container-fluid sky">
+<!--TITLE-->
     <div class="row d-flex justify-content-center align-items-center">
         <h1 class="text-center mr-3">movies</h1><i class="fas fa-ticket-alt movie"></i>
     </div>
-
+<!--ADD MOVIE BUTTON-->
     <div class="d-flex row justify-content-center text-center">
         <button id="addMovie" class=' ml-auto fill fas fa-plus-circle mb-5 mt-3' onclick="myFunction()"> Add Movie</button>
     </div>
 
     <form id="form" class="container-fluid text-white hide">
-    <!--    <h4>Add your own movie!</h4>-->
         <div class="row d-flex">
             <div class="col-2">
-                <label class="font-weight-bold mb-3 row" for="title">Title:</label>
-                <input class="row" id='title' type="text">
+                <label class="font-weight-bold mb-3" for="title">Title:</label>
+                <input id='title' type="text">
             </div>
             <div class="col-2">
-                <label class="font-weight-bold mb-3 row" for="director">Director:</label>
-                <input class="row" id='director' type="text">
+                <label class="font-weight-bold mb-3" for="director">Director:</label>
+                <input id='director' type="text">
             </div>
             <div class="col-2">
-                <label class="font-weight-bold mb-3 row" for="genre">Genre:</label>
-                <input class="row" id='genre' type="text">
+                <label class="font-weight-bold mb-3" for="genre">Genre:</label>
+                <input id='genre' type="text">
             </div>
             <div class="col-1">
-                <label class="font-weight-bold mb-2 row" for="rating">Rating:</label>
+                <label class="font-weight-bold mb-2" for="rating">Rating:</label>
                 <select class="form-control mb-3 darkBg" style="width: 4em" id="rating">
                     <option>1</option>
                     <option>2</option>
@@ -42,13 +43,13 @@
                 </select>
             </div>
         </div>
-        <div class="row">
+        <div>
             <div class="col-6">
                 <label class="font-weight-bold mb-3 row" for="plot">Plot:</label>
-                <textarea class="row" id='plot' type="text"></textarea>
+                <textarea class="row" id='plot'></textarea>
             </div>
         </div>
-        <div class="row">
+        <div>
             <div class="col">
                 <button class="row mb-2" id="button" type="button" >Add Movie</button>
             </div>
@@ -56,6 +57,7 @@
     </form>
     <div class="d-flex row justify-content-around" id="container"></div>
 
+<!--SCRIPTS-->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
 </body>
