@@ -1,20 +1,22 @@
 "use strict"
 
-let getOptions = {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json',
-    }
-};
+// let getOptions = {
+//     method: 'GET',
+//     headers: {
+//         'Content-Type': 'application/json',
+//     }
+// };
 
-// LOADING MESSAGE
+// loading message for fun
 $('#container').html("Loading...");
+let url = 'https://pointed-ripple-stork.glitch.me/movies';
 
 // POPULATES MOVIE CARDS
 const getMovies = () => {
+    // movies in an arbitrary name, stand in for 'data'
     $.ajax('https://pointed-ripple-stork.glitch.me/movies').done((movies) => {
-        console.log(movies);
-    setTimeout(function (){
+    //    this timeout was set so that the "loading" message could show.... just for fun
+    setTimeout(function () {
        let htmlStr = "";
         for (let movie of movies) {
             htmlStr += `
@@ -25,9 +27,8 @@ const getMovies = () => {
                         <p contenteditable="false" id="plot-${movie.id}" class="card-text plot">${movie.plot}</p>
                       </div>
                       <ul class="list-group list-group-flush">
-                        <li contenteditable="false" id="director-${movie.id}" class="list-group-item director">${movie.director}</li>
+                        <li contenteditable="false" id="director-${movie.id}" class="list-group-item director">${"Directed By: " + movie.director}</li>
                         <li contenteditable="false" id="genre-${movie.id}" class="list-group-item genre">${movie.genre}</li>
-<!--                        <li contenteditable="false" id="rating-${movie.id}" class="list-group-item rating">${movie.rating}</li>-->
                       </ul>
                       <div contenteditable="false" id="rating-${movie.id} class="rating">
                             <i class="fas fa-star ml-3"></i>                           
@@ -44,10 +45,11 @@ const getMovies = () => {
                 </div>`;
             }
 
+            // putting all the data into the #container div on html page
             $('#container').html(htmlStr);
 
             // DELETE FUNCTION
-            $('button.delete').click(function() {
+            $('.delete').click(function() {
                 let parentID =  $(this).parent().parent().attr('id');
                 let deleteOptions = {
                     method: 'DELETE',
@@ -55,7 +57,7 @@ const getMovies = () => {
                         'Content-Type': 'application/json',
                     }
                 };
-                fetch(`https://pointed-ripple-stork.glitch.me/movies/${parentID}`, deleteOptions)
+                fetch(`${url}/${parentID}`, deleteOptions)
                     .then(getMovies);
             });
 
@@ -63,37 +65,27 @@ const getMovies = () => {
             $('i.editButton').click(function (){
                 let parentID =  $(this).parent().parent().attr('id');
                 let parent = $(this).parent().parent();
-
-                let title = $(this).parent().parent().children().next().children('.card-title').attr('contenteditable', 'true');
-                let plot = $(this).parent().parent().children().next().children().next('.plot').attr('contenteditable', 'true');
-                let director = $(this).parent().parent().children().next().next().children('.director').attr('contenteditable', 'true');
-                let genre = $(this).parent().parent().children().next().next().children('.genre').attr('contenteditable', 'true');
-                var rating = $(this).parent().parent().children().next().next().children('.rating').attr('contenteditable', 'true');
-                // $(this).next().attr('class', 'ml-auto saveChanges');
-                // $(this).next().html('Save');
-
-                console.log(genre);
-                console.log(rating);
-                console.log(parentID)
+                let title = $(this).parent().parent().find('.card-title').attr('contenteditable', 'true');
+                const plot = $(this).parent().parent().find('.plot').attr('contenteditable', 'true');
+                const director = $(this).parent().parent().find('.director').attr('contenteditable', 'true');
+                const genre = $(this).parent().parent().find('.genre').attr('contenteditable', 'true');
+                const rating = $(this).parent().parent().find('.rating').attr('contenteditable', 'true');
 
                 $(this).next().toggleClass('hide')
                 $(this).next().next().toggleClass('hide')
-                // $('.delete').toggleClass('hide')
                 $(this).parent().parent().toggleClass('highlight')
                 $(this).parent().prev().children().toggleClass('highlight')
 
-
                 // EDIT FUNCTION
-                $('button.saveChanges').click(function () {
-                    console.log($(this).text());
+                $('.saveChanges').click(function () {
                     let parentID =  $(this).parent().parent().attr('id');
                     let editThis = {
                         "poster": $(this).parent().parent().children('img').attr('src'),
-                        "title": $(this).parent().parent().children().next().children('.card-title').text(),
-                        "plot": $(this).parent().parent().children().next().children().next('.plot').text(),
-                        "director":"Directed by: " + $(this).parent().parent().children().next().next().children('.director').text(),
-                        "genre": $(this).parent().parent().children().next().next().children('.genre').text(),
-                        "rating": $(this).parent().parent().children().next().next().children('.rating').text(),
+                        "title": title.text(),
+                        "plot": plot.text(),
+                        "director": director.text(),
+                        "genre": genre.text(),
+                        "rating": rating.text(),
                     };
                     let patchOptions = {
                         method: 'PATCH',
@@ -102,7 +94,7 @@ const getMovies = () => {
                         },
                         body: JSON.stringify(editThis),
                     }
-                    fetch(`https://pointed-ripple-stork.glitch.me/movies/${parentID}`, patchOptions)
+                    fetch(`${url}/${parentID}`, patchOptions)
                         .then(getMovies);
                 });
             });
@@ -111,8 +103,16 @@ const getMovies = () => {
 }
 getMovies();
 
+// TODO poster api
+var getPoster = function() {
+    var film = $('#title').value();
+    $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=" + film + "&callback=?", function (json) {
+    });
+    return false;
+}
+
 // FORM TO ADD NEW ITEMS
-$('#button').click(() => {
+$('#submit').click(() => {
     var newTitle = $('#title').val();
     var newRating = $('#rating').val();
     var newPlot = $('#plot').val();
@@ -132,22 +132,28 @@ $('#button').click(() => {
         },
         body: JSON.stringify(newMovie),
     }
-    fetch("https://pointed-ripple-stork.glitch.me/movies", postOptions)
+    fetch('https://pointed-ripple-stork.glitch.me/movies', postOptions)
         .then(getMovies);
+    getPoster();
 });
 
-// TOGGLES VIEW OF ADD MOVIES
-$("#addMovie").click(() => {
-    $('#form').toggleClass('hide')
-    $('#addMovie').toggleClass('visibility', 'hidden' )
-});
+// TOGGLES VIEW OF ADD MOVIES FORM, is this still needed now that it's a modal?
+// $("#button").click(() => {
+//     $('#form').toggleClass('hide')
+//     $('#addMovie').toggleClass('visibility', 'hidden' )
+// });
+//
+// $("#addMovie").click(() => {
+//     $('#form').toggleClass('hide')
+//     $('#addMovie').toggleClass('visibility', 'hidden' )
+// });
+//
+// $("#button").click(() => {
+//     $('#form').toggleClass('hide')
+//     $('#addMovie').toggleClass('visibility', 'hidden' )
+// });
 
-$("#button").click(() => {
-    $('#form').toggleClass('hide')
-    $('#addMovie').toggleClass('visibility', 'hidden' )
-});
-
+// this is a work in progress
 $(".fa-star").click(() => {
     $('.fa-star').toggleClass('yellow')
-    // $('#addMovie').toggleClass('visibility', 'hidden' )
 });

@@ -3,63 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movies App!</title>
+    <title>Movies Application</title>
     <script src="https://kit.fontawesome.com/1e8ed50084.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="container-fluid sky">
-<!--TITLE-->
-    <div class="row d-flex justify-content-center align-items-center">
-        <h1 class="text-center mr-3">movies</h1><i class="fas fa-ticket-alt movie"></i>
-    </div>
-<!--ADD MOVIE BUTTON-->
-    <div class="d-flex row justify-content-center text-center">
-        <button id="addMovie" class=' ml-auto fill fas fa-plus-circle mb-5 mt-3' onclick="myFunction()"> Add Movie</button>
+
+<!--TITLE and add movies button-->
+<div class="d-flex justify-content-center align-items-center">
+    <h1 class="text-center me-3">movies</h1><i class="fas fa-ticket-alt movie"></i>
+</div>
+
+    <div class="container text-center">
+        <button type="button" id="addMovie" class="fas fa-plus-circle m-5" data-bs-toggle="modal" data-bs-target="#addMovieForm"> Add Movie</button>
     </div>
 
-    <form id="form" class="container-fluid text-white hide">
-        <div class="row d-flex">
-            <div class="col-2">
-                <label class="font-weight-bold mb-3" for="title">Title:</label>
-                <input id='title' type="text">
-            </div>
-            <div class="col-2">
-                <label class="font-weight-bold mb-3" for="director">Director:</label>
-                <input id='director' type="text">
-            </div>
-            <div class="col-2">
-                <label class="font-weight-bold mb-3" for="genre">Genre:</label>
-                <input id='genre' type="text">
-            </div>
-            <div class="col-1">
-                <label class="font-weight-bold mb-2" for="rating">Rating:</label>
-                <select class="form-control mb-3 darkBg" style="width: 4em" id="rating">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option selected="selected">5</option>
-                </select>
+<!-- this form is hidden until add movie button is clicked than the class is toggled and shows forms-->
+<!--    <form id="form1" class="container-fluid">-->
+        <div class="modal fade" id="addMovieForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div>
+                            <label for="title" class="form-label">Title:</label>
+                            <input class="form-control" id="title" type="text" placeholder="Title">
+                        </div>
+                        <br>
+                        <div>
+                            <label for="director" class="form-label">Director:</label>
+                            <input class="form-control" id='director' type="text" placeholder="Director">
+                        </div>
+                        <br>
+                        <div>
+                            <label for="genre" class="form-label">Genre:</label>
+                            <input class="form-control" id='genre' type="text" placeholder="Genre">
+                        </div>
+                        <br>
+                        <div>
+                            <label for="plot" class="form-label">Plot:</label>
+                            <textarea class="form-control" id='plot'></textarea>
+                        </div>
+                        <br>
+                        <div>
+                            <label for="rating" class="form-label">Rating:</label>
+                            <select class="form-control" id="rating">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option selected="selected">5</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="modal-footer">
+                            <button id="submit" type="button" data-bs-toggle="modal" class="btn btn-light w-100" data-bs-target="#addMovieForm">Add Movie</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div>
-            <div class="col-6">
-                <label class="font-weight-bold mb-3 row" for="plot">Plot:</label>
-                <textarea class="row" id='plot'></textarea>
-            </div>
-        </div>
-        <div>
-            <div class="col">
-                <button class="row mb-2" id="button" type="button" >Add Movie</button>
-            </div>
-        </div>
-    </form>
+<!--    </form>-->
+
     <div class="d-flex row justify-content-around" id="container"></div>
 
 <!--SCRIPTS-->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
+
 </body>
 </html>
-
