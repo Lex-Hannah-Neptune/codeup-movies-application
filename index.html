@@ -4,68 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movies Application</title>
+
     <script src="https://kit.fontawesome.com/1e8ed50084.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="container-fluid sky">
 
-<!--TITLE and add movies button-->
+<!--HEADER-->
 <div class="d-flex justify-content-center align-items-center">
-    <h1 class="text-center me-3">movies</h1><i class="fas fa-ticket-alt movie"></i>
+    <h1 class="text-center me-3 my-0">movies</h1><i class="fas fa-ticket-alt movie"></i>
 </div>
 
-    <div class="container text-center">
-        <button type="button" id="addMovie" class="fas fa-plus-circle m-5" data-bs-toggle="modal" data-bs-target="#addMovieForm"> Add Movie</button>
-    </div>
+<!--'ADD MOVIES' BUTTON-->
+<div class="text-center">
+    <button type="button" id="addMovie" class="m-5" data-bs-toggle="modal" data-bs-target="#addMovieForm"><i class="fas fa-plus-circle"></i> Add Movie</button>
+</div>
 
-<!-- this form is hidden until add movie button is clicked than the class is toggled and shows forms-->
-<!--    <form id="form1" class="container-fluid">-->
-        <div class="modal fade" id="addMovieForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div>
-                            <label for="title" class="form-label">Title:</label>
-                            <input class="form-control" id="title" type="text" placeholder="Title">
-                        </div>
-                        <br>
-                        <div>
-                            <label for="director" class="form-label">Director:</label>
-                            <input class="form-control" id='director' type="text" placeholder="Director">
-                        </div>
-                        <br>
-                        <div>
-                            <label for="genre" class="form-label">Genre:</label>
-                            <input class="form-control" id='genre' type="text" placeholder="Genre">
-                        </div>
-                        <br>
-                        <div>
-                            <label for="plot" class="form-label">Plot:</label>
-                            <textarea class="form-control" id='plot'></textarea>
-                        </div>
-                        <br>
-                        <div>
-                            <label for="rating" class="form-label">Rating:</label>
-                            <select class="form-control" id="rating">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option selected="selected">5</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div class="modal-footer">
-                            <button id="submit" type="button" data-bs-toggle="modal" class="btn btn-light w-100" data-bs-target="#addMovieForm">Add Movie</button>
-                        </div>
-                    </div>
+<!-- ADD MOVIE MODAL-->
+<div class="modal fade" id="addMovieForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div>
+                    <label for="title" class="form-label">Title:</label>
+                    <input class="form-control" id="title" type="text" placeholder="Title">
+                </div>
+                <br>
+                <div>
+                    <label for="director" class="form-label">Director:</label>
+                    <input class="form-control" id='director' type="text" placeholder="Director">
+                </div>
+                <br>
+                <div>
+                    <label for="genre" class="form-label">Genre:</label>
+                    <input class="form-control" id='genre' type="text" placeholder="Genre">
+                </div>
+                <br>
+                <div>
+                    <label for="plot" class="form-label">Plot:</label>
+                    <textarea class="form-control" id='plot'></textarea>
+                </div>
+                <br>
+                <div>
+                    <label for="rating" class="form-label">Rating:</label>
+                    <select class="form-control" id="rating">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option selected="selected">5</option>
+                    </select>
+                </div>
+                <br>
+                <div class="modal-footer">
+                    <button id="submit" type="button" data-bs-toggle="modal" class="btn btn-light w-100" data-bs-target="#addMovieForm">Add Movie</button>
                 </div>
             </div>
         </div>
-<!--    </form>-->
+    </div>
+</div>
 
-    <div class="d-flex row justify-content-around" id="container"></div>
+<div class="d-flex row justify-content-around" id="container"></div>
 
 <!--SCRIPTS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
