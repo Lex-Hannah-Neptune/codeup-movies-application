@@ -7,7 +7,6 @@
 
 body {
     background: linear-gradient(45deg, #000000, #000000, #c40000, #d80000);
-    /*background-repeat: inherit;*/
     background-size: 250% 250%;
     animation: gradient 10s ease-in-out infinite;
 }
@@ -34,9 +33,6 @@ textarea {
     height: 10em;
     margin-bottom: 20px;
     border-radius: 7px;
-    /*background-color:  #1B1B1B ;*/
-    /*color: whitesmoke;*/
-    /*border: none;*/
 }
 
 .card {
@@ -80,11 +76,6 @@ h1 {
     margin-top: 1px;
 }
 
-/*.delete, .saveChange {*/
-/*    height: 40px;*/
-/*    width: 70px;*/
-/*}*/
-
 i {
     height: 40px !important;
     width: 70px !important;
@@ -110,21 +101,12 @@ img {
     direction: rtl;
     padding: 1em;
 }
-/*.rating > span {*/
-/*    display: inline-block;*/
-/*    position: relative;*/
-/*    width: 1.1em;*/
-/*}*/
+
 .rating > i:hover:before,
 .rating > i:hover ~ span:before {
     content: "\2605";
     position: absolute;
 }
-
-
-
-
-
 
 .fas {
     display: inline;

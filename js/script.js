@@ -19,8 +19,8 @@ const getMovies = () => {
                         <p id="genre-${movie.id}" class="genre">${movie.genre}</p>
                       </div>
                       <div id="rating-${movie.id}" class="rating ms-3">
-<!--                      work on progres for star rating functionality-->
-                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+<!--                      work in progress for star rating functionality-->
+<!--                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>-->
 <!--                            <i class="fas fa-star star" data-value="1"></i>                           -->
 <!--                            <i class="fas fa-star star" data-value="2"></i>                           -->
 <!--                            <i class="fas fa-star star" data-value="3"></i>                         -->
